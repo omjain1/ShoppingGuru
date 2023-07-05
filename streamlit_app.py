@@ -9,6 +9,8 @@ import openai
 import toml
 import os
 from google.oauth2 import service_account
+from streamlit_chat import message
+api = st.sidebar.text_input("Your API Key", type="password")
 
 openai.api_key= st.secrets["openai"]["api_key"]
 # Load the service account credentials from the downloaded JSON file
@@ -70,14 +72,20 @@ model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy']
 # Load the pre-trained model weights
 model.load_weights('ltsm_sentiment.h5')
 
-def generate_response(prompt):
+def generate_response(prompt, conversation_memory):
+    messages = [
+        {"role": "system", "content": "your job is to assist the user with its queries related to any product and provide suggestions about the product"},
+        {"role": "user", "content": prompt}
+    ]
+    
+    if conversation_memory:
+        messages.extend(conversation_memory)
+    
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
-        messages=[
-            {"role": "system", "content": "If user asks about anything other than related to products on amazon than reply it with : I'm sorry, I can only provide information about Amazon products. Otherwise if user asks about any product then please give them information about product's price, specifications and reviews"},
-            {"role": "user", "content": prompt}
-        ]
+        messages=messages
     )
+    
     return response.choices[0].message.content
 
 
@@ -98,12 +106,42 @@ if user_input:
     st.write('Prediction Score:', prediction)
 
 # Get user input for chatbot
-chat_input = st.text_input('Chat with the Chatbot:')
+# chat_input = st.text_input('Chat with the Chatbot:')
 
-if chat_input:
-    response = generate_response(chat_input)
-    st.write('Chatbot:', response)
+# if chat_input:
+#     response = generate_response(chat_input)
+#     st.write('Chatbot:', response)
 
-# # Run the Streamlit app
-# if __name__ == '__main__':
-#     app()
+if 'generated' not in st.session_state:
+    st.session_state['generated'] = []
+
+if 'past' not in st.session_state:
+    st.session_state['past'] = []
+
+if 'conversation_memory' not in st.session_state:
+    st.session_state['conversation_memory'] = []
+
+def get_text():
+    input_text = st.text_input("You: ", key="input")
+    return input_text
+
+user_input = get_text()
+
+if user_input:
+    output = generate_response(user_input, st.session_state['conversation_memory'])
+    # Store the output 
+    st.session_state['past'].append(user_input)
+    st.session_state['generated'].append(output)
+
+    # Update conversation memory
+    st.session_state['conversation_memory'].append({"role": "user", "content": user_input})
+    st.session_state['conversation_memory'].append({"role": "assistant", "content": output})
+
+if api:
+    if st.session_state['generated']:
+        for i in range(len(st.session_state['generated'])-1, -1, -1):
+            message(st.session_state['generated'][i], key=str(i))
+            message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
+
+else:
+    st.error("API Error")
