@@ -67,11 +67,6 @@ if user_input:
 # Get user input for chatbot
 chat_input = st.text_input('Chat with the Chatbot:')
 
-# Check for exit condition
-if chat_input.lower() == 'exit':
-    st.write('Exiting...')
-    return
-
 if chat_input:
     response = generate_response(chat_input)
     st.write('Chatbot:', response)
