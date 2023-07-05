@@ -8,11 +8,9 @@ import tensorflow as tf
 import openai
 import toml
 
-config = toml.load("config.toml")
-api_key = config["openai"]["api_key"]
+openai.api_key= st.secrets["openai"]["api_key"]
 
-# Use the API key in your OpenAI calls
-openai.api_key = api_key
+
 # df_train_cleaned = pd.read_csv('X_train_cleaned.csv')
 # X_train_cleaned_series = pd.Series(df_train_cleaned['text'].dropna())
 
