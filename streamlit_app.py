@@ -47,35 +47,35 @@ def generate_response(prompt):
     )
     return response.choices[0].message.content
 
-def app():
-    st.title('Sentiment Analysis & Chatbot')
 
-    # Get user input
-    user_input = st.text_input('Enter a review:')
+st.title('Sentiment Analysis & Chatbot')
 
-    if user_input:
-        # Preprocess the review
-        review_sequence = tokenizer.texts_to_sequences([user_input])
-        review_padded = pad_sequences(review_sequence, maxlen=max_sequence_length)
+# Get user input
+user_input = st.text_input('Enter a review:')
 
-        # Perform sentiment analysis prediction
-        prediction = model.predict(review_padded)[0][0]
-        sentiment = "Positive" if prediction >= 0.5 else "Negative"
-        st.write('Sentiment:', sentiment)
-        st.write('Prediction Score:', prediction)
+if user_input:
+    # Preprocess the review
+    review_sequence = tokenizer.texts_to_sequences([user_input])
+    review_padded = pad_sequences(review_sequence, maxlen=max_sequence_length)
 
-    # Get user input for chatbot
-    chat_input = st.text_input('Chat with the Chatbot:')
+    # Perform sentiment analysis prediction
+    prediction = model.predict(review_padded)[0][0]
+    sentiment = "Positive" if prediction >= 0.5 else "Negative"
+    st.write('Sentiment:', sentiment)
+    st.write('Prediction Score:', prediction)
 
-    # Check for exit condition
-    if chat_input.lower() == 'exit':
-        st.write('Exiting...')
-        return
+# Get user input for chatbot
+chat_input = st.text_input('Chat with the Chatbot:')
 
-    if chat_input:
-        response = generate_response(chat_input)
-        st.write('Chatbot:', response)
+# Check for exit condition
+if chat_input.lower() == 'exit':
+    st.write('Exiting...')
+    return
 
-# Run the Streamlit app
-if __name__ == '__main__':
-    app()
+if chat_input:
+    response = generate_response(chat_input)
+    st.write('Chatbot:', response)
+
+# # Run the Streamlit app
+# if __name__ == '__main__':
+#     app()
