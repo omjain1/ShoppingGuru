@@ -1,0 +1,20 @@
+name: googledrivw
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Google Application Credentials
+        run: |
+          echo "$GOOGLE_APPLICATION_CREDENTIALS" > keyfile.json
+          echo "export GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/keyfile.json" >> $GITHUB_ENV
+          # Additional steps or commands
