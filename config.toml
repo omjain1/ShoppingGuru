@@ -1,0 +1,4 @@
+# config.toml
+
+[openai]
+api_key = "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"
