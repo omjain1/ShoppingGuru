@@ -8,7 +8,7 @@ import tensorflow as tf
 import openai
 
 
-openai.api_key = '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'
+openai.api_key = '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'
 
 
 # df_train_cleaned = pd.read_csv('X_train_cleaned.csv')
