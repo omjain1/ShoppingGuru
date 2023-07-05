@@ -11,11 +11,11 @@ import openai
 openai.api_key = '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'
 
 
-df_train_cleaned = pd.read_csv('X_train_cleaned.csv')
-X_train_cleaned_series = pd.Series(df_train_cleaned['text'].dropna())
+# df_train_cleaned = pd.read_csv('X_train_cleaned.csv')
+# X_train_cleaned_series = pd.Series(df_train_cleaned['text'].dropna())
 
-df_val_cleaned = pd.read_csv('X_val_cleaned.csv')
-X_val_cleaned_series = pd.Series(df_val_cleaned['text'].dropna())
+# df_val_cleaned = pd.read_csv('X_val_cleaned.csv')
+# X_val_cleaned_series = pd.Series(df_val_cleaned['text'].dropna())
 
 # df_X_val_padded = pd.read_csv('X_val_padded.csv')
 # df_X_train_padded = pd.read_csv('X_train_padded.csv')
@@ -23,7 +23,7 @@ X_val_cleaned_series = pd.Series(df_val_cleaned['text'].dropna())
 max_words = 10000
 max_sequence_length = 100
 tokenizer = Tokenizer(num_words=max_words)
-tokenizer.fit_on_texts(X_train_cleaned_series)
+# tokenizer.fit_on_texts(X_train_cleaned_series)
 embedding_dim = 100
 lstm_units = 128
 model = Sequential()
