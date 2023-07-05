@@ -41,7 +41,7 @@ def generate_response(prompt):
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "system", "content": "If user asks about anything other than related to products on amazon than reply it with : I'm sorry, I can only provide information about Amazon products. "},
+            {"role": "system", "content": "If user asks about anything other than related to products on amazon than reply it with : I'm sorry, I can only provide information about Amazon products. Otherwise if user asks about any product then please give them information about product's price, specifications and reviews"},
             {"role": "user", "content": prompt}
         ]
     )
