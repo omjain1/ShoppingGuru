@@ -74,7 +74,7 @@ model.load_weights('ltsm_sentiment.h5')
 
 def generate_response(prompt, conversation_memory):
     messages = [
-        {"role": "system", "content": "your job is to assist the user with its queries related to any product and provide suggestions about the product"},
+        {"role": "system", "content": "You are Prodify. Your job is to assist the user with its queries related to any product and provide suggestions about the product"},
         {"role": "user", "content": prompt}
     ]
     
