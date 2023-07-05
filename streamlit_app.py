@@ -13,11 +13,13 @@ from google.oauth2 import service_account
 openai.api_key= st.secrets["openai"]["api_key"]
 # Load the service account credentials from the downloaded JSON file
 
-# Load the service account credentials from the environment variable
-credentials_path = os.environ['GOOGLE_APPLICATION_CREDENTIALS']
+credentials_path = 'portfolio-388719-602e459f77d8.json'
 credentials = service_account.Credentials.from_service_account_file(
     credentials_path, scopes=['https://www.googleapis.com/auth/drive']
 )
+
+# Set the credentials as environment variables for authentication
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credentials_path
 import pandas as pd
 import gdown
 
