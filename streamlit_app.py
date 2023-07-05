@@ -16,7 +16,8 @@ openai.api_key= st.secrets["openai"]["api_key"]
 # Load the service account credentials from the environment variable
 credentials_path = os.environ['GOOGLE_APPLICATION_CREDENTIALS']
 credentials = service_account.Credentials.from_service_account_file(
-    credentials_path, scopes=['https://www.googleapis.com/auth/drive')
+    credentials_path, scopes=['https://www.googleapis.com/auth/drive']
+)
 import pandas as pd
 import gdown
 
