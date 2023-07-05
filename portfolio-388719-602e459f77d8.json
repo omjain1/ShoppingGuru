@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "portfolio-388719",
+  "private_key_id": "602e459f77d8d2a3409124184587dce6be4e9730",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDUpS2cATwALIOm\nJKXe5VbeBPQTgjH2fquRXlh4naRNO4fx6Nr5MfsZDRPMdlf5fg9c0T1ZCJvT1zbL\nU24XUlrSCvPve3UXQq/SaGtoWOYdnGFL0Ar8Hg9RZQ9wz3i94lcTDMnlTSfNXTg7\nDRR5wy+79rOGpn6Cm2eOWc8EBL4aOE1yeKBPy4161bhmDxMFDYG908QHrIyJQ/bI\nhNfBzDQv9dlRt3wRYHRU7OEWWuApatk0A6Z5UyCogjySCXt+OY6tdk78gwB/qSa4\neiQeGyA6IqaI6xSKEv1WYhOns/7XvD95emw9VGrlL9BKoofcyHklwW5X74taEAfu\n8Ehz3dPTAgMBAAECggEAHaFWlaJmZe/N+Fyq8EAstosiJ4XAyIQmC/+FfGka99gP\nvVmhCZA5WOhFlfv3jkBOi7RsQ/e7Hu2iKPrbIEzNcu8rxncBfdhA/6SlMskQZ5fe\nxt2aaj8WC1V1rVZ7kJn1YCYsC9OQdEFFEJVmAQF9qUdbBKw2fKSC7Yb+HaU7iBOH\nJoAL4f7ELUniWUhTlYiHC6fG9TjR87oTczXc04bTCZkY2hlT6ld/c/5nj+v3q3p8\n8UoBrKdMXu6Y4LM1mbuGJ4tjhoDhCDcjQWFHfhxbBPx4ClBsbjx1IrZOx0BSBer4\n1i6vkrnTpkcpoCFQGdX9FPyQhAHhctK1qNmXkm3AoQKBgQD6rel7c4gtTjTMvpy5\nG//67tURRdlz2IvscbF8/FLOsdEUSuO/uYvUZaUcm1OKqK2glxpBzBtst4K1MM/H\nhFHim2CsBLYceEqKJLKygASlmkOkHN8Bhw9aeJm9SSWEDI5vrlItpYpsefXXB0Z8\n6zazbRlEARnp3vtNPg3/yFsqxwKBgQDZKJq9MS+UUJDIlGvSvN6Gza6sj9HGJRzC\nUEj7Meqw8k9PwgdCsBiG8XiO0NLd/AZuqth9fuEbfWr1LYeSMpzh67EUSBOMMqXx\ncpKayZmH7kQ8pz2PZ69UZXqzD02+PC5oQycvo79/tJhHxrJ9rgG2Kd1/qBBZBeW7\nYEf6EGSilQKBgErTIoAw6hLr5yK+OrWeP/g81eiD+vZzSsDW5u2xu13rAceW2whd\nb/mEJZa2XmdjFgB7WeEN9Zmr5R4EZeDeBDspud9ewKUa2tUFQzm4sKpls48G9yHT\nmKeem/U+Ii6aOOHpHKp3YSwj81et2kJrSzafeA0ubve6ETTrMu6IdX39AoGAA1+I\nF8w9yvX9acA0dI+OfVWQkwmg3o0RB0ur9ort9FWvObPv3O9TUjVKBB3mSKBzkSCC\nQGDKKl0mXiyY4IJ8wV2h4IjGFPVscnWvJUxgYCYpVS/b2vBnXs48u69PK9dPeTsh\nzrGidd9eRi8l8qHTUPsRf7wilN9slB6Iv6+lgIkCgYByvThl6MG5CZS7r/SVixsU\nu8OeawY0sxRS4CjMSWEmPVS5HDofCuDpPMVH3XHcs4rn2CiSv8zMDAjrtr9lkKfK\nUKwGFO0dO6L8kT5KBdhTN07d9x/9ZHegdGa4b/CvyIFfcGgOGRskbaO2JcJ6ny4u\nGNCRIQI1c5nN+mTuf4mCMw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "shopping@portfolio-388719.iam.gserviceaccount.com",
+  "client_id": "101721553603992493162",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/shopping%40portfolio-388719.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
