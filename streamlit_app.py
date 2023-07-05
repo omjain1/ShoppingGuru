@@ -7,15 +7,46 @@ from tensorflow.keras.preprocessing.text import Tokenizer
 import tensorflow as tf
 import openai
 import toml
+import os
+from google.oauth2 import service_account
 
 openai.api_key= st.secrets["openai"]["api_key"]
+# Load the service account credentials from the downloaded JSON file
+
+# Load the service account credentials from the environment variable
+credentials_path = os.environ['GOOGLE_APPLICATION_CREDENTIALS']
+credentials = service_account.Credentials.from_service_account_file(
+    credentials_path, scopes=['https://www.googleapis.com/auth/drive'
+)
+import pandas as pd
+import gdown
+
+# Define the file ID of the CSV file on Google Drive
+file_id = '159VHNpovIyJfISBtbRnY2oCoIs2HrAPY'
+file_url = f'https://drive.google.com/uc?id={file_id}'
+
+file_id1 = '19NALCJBXeNJDPD7SmyLDxlyIlRyVQaO6'
+file_url1 = f'https://drive.google.com/uc?id={file_id}'
+
+# Download the file into memory
+response = gdown.download(file_url, quiet=False)
+
+# Load the CSV file using pandas
+df_train_cleaned = pd.read_csv(response)
+
+# Download the file into memory
+response1 = gdown.download(file_url1, quiet=False)
+
+# Load the CSV file using pandas
+df_val_cleaned = pd.read_csv(response1)
+
 
 
 # df_train_cleaned = pd.read_csv('X_train_cleaned.csv')
-# X_train_cleaned_series = pd.Series(df_train_cleaned['text'].dropna())
+X_train_cleaned_series = pd.Series(df_train_cleaned['text'].dropna())
 
 # df_val_cleaned = pd.read_csv('X_val_cleaned.csv')
-# X_val_cleaned_series = pd.Series(df_val_cleaned['text'].dropna())
+X_val_cleaned_series = pd.Series(df_val_cleaned['text'].dropna())
 
 # df_X_val_padded = pd.read_csv('X_val_padded.csv')
 # df_X_train_padded = pd.read_csv('X_train_padded.csv')
